@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Конвертер дюймов в единицы международной системы</title>
+        <meta name="description" content="Конвертер дюймов в миллиметры, сантиметры или метры. Поддерживается ввод с дробями.">
+        <meta name="keywords" content="конвертер дюймов с дробями, конвертер дюймов с дробными числами, конвертер дюймов с частями, дюймы в миллиметры, дюймы в сантиметры, дюймы в метры, ">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div id="inch-to-metric" class="itm">
+                <h1 class="itm__title">Конвертер дюймов в единицы международной системы</h1>
+                <h2 class="itm__subtitle">Для тех случаев, когда размеры указаны целыми и дробными частями дюйма</h2>
+
+                <div class="itm__inlet">
+                    <div class="itm__item itm-integer">
+                        <div class="input-control">
+                            <label class="input-control__label" for="integer">Целое</label>
+                            <input v-model="modelInteger" type="number" class="input-control__input" name="integer" id="integer" min="0">
+                        </div>
+                    </div>
+                    <div class="itm__item itm-dividend" v-bind:class="{ inactive: inactive }">
+                        <div class="input-control">
+                            <label class="input-control__label" for="dividend">Делимое</label>
+                            <input v-model="modelDividend" type="number" class="input-control__input" name="dividend" id="dividend" min="0">
+                        </div>
+                    </div>
+                    <div class="itm__item itm-delimiter" v-bind:class="{ inactive: inactive }">/</div>
+                    <div class="itm__item itm-divisor" v-bind:class="{ inactive: inactive }">
+                        <div class="input-control">
+                            <label class="input-control__label" for="divisor">Делитель</label>
+                            <input v-model="modelDivisor" type="number" class="input-control__input" name="divisor" id="divisor" min="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="itm__output result"> 
+                    <div class="result__item">
+                        <div class="result__summary">
+                            <span class="result__val">
+                                {{ result.mm }} 
+                            </span>
+                            <span class="result__key">
+                                миллиметров, мм
+                            </span>
+                        </div>
+                        <div class="result__action">
+                            <span class="result__key">Знаков после запятой {{decimalPoint.mm}}</span>
+                            <button v-on:click="DPDecrease('mm')" type="button" class="decimal-point decimal-point_decrease">-</button>
+                            <button v-on:click="DPIncrease('mm')" type="button" class="decimal-point decimal-point_increase">+</button>
+                        </div>
+                    </div> 
+                    <div class="result__item">
+                        <div class="result__summary">
+                            <span class="result__val">
+                                {{ result.cm }} 
+                            </span>
+                            <span class="result__key">
+                                сантиметров, cм
+                            </span>
+                        </div>
+                        <div class="result__action">
+                            <span class="result__key">Знаков после запятой {{decimalPoint.cm}}</span>
+                            <button v-on:click="DPDecrease('cm')" type="button" class="decimal-point decimal-point_decrease">-</button>
+                            <button v-on:click="DPIncrease('cm')" type="button" class="decimal-point decimal-point_increase">+</button>
+                        </div>
+                    </div> 
+                    <div class="result__item">
+                        <div class="result__summary">
+                            <span class="result__val">
+                                {{ result.m }} 
+                            </span>
+                            <span class="result__key">
+                                метров, м
+                            </span>
+                        </div>
+                        <div class="result__action">
+                            <span class="result__key">Знаков после запятой {{decimalPoint.m}}</span>
+                            <button v-on:click="DPDecrease('m')" type="button" class="decimal-point">-</button>
+                            <button v-on:click="DPIncrease('m')" type="button" class="decimal-point">+</button>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        </div>
+<script>
+    while(true) {
+        console.log('drink');
+        console.log('eat');
+        console.log('celebrate');
+    }
+</script>
+
+        <script src="lib/vue/vue.min.js"></script>
+        <script src="js/script.js"></script>
+
+    </body>
+</html>
